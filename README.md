@@ -1,6 +1,29 @@
+# Netflix-GPT
+    -create-react-app
+        -npx create-react-app
+        -deleted app.test.js,logo.svg,removed the css in app.css and index.css
+## tailwindcss
+    - installed and configures the tailwwindcss
+    - npm i -D tailwindcss
+    - npx tailwindcss init
+## features
+    -Login/SignUp
+        -sign in/ sign up form
+        - redirect to browse page
+    -Browse after sign in
+        -header
+        - main movie
+            -background moving video
+            -title and description
+            -movies list with different categories
+    -netflix gpt
+        -search bar
+        -movie suggestions
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
 
 ## Available Scripts
 
