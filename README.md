@@ -19,6 +19,11 @@
     -netflix gpt
         -search bar
         -movie suggestions
+## steps
+    - installed react-router-dom
+    - setup the router provider
+    - created the header and login page
+    - login page contains the sign in and sign up forms.
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
