@@ -13,6 +13,24 @@
     -deploy app using the firebase
     -create signup and sign in user account
     -created redux store with userslice
+    -sign out
+    -update profile
+    -Bug fix: sign up user name and photourl update
+    -bug fix:protected route
+    -Unsubscribe to onauthstate changed.
+    -add hardcoded values into constants file
+    -tmdb movies api- movies database which has all the latest movies
+    - login into tmdb and create app for api access token
+    - then go to documentation and api references
+    -make api call in those api refrences whatever you want to
+    -adding movies data to store
+    -create movie slice for movies and add there
+    -create new custom hook for getting the movies form tmdb to make code looks clean.
+    -planning for main container and secondary container
+    -fetch data for trailer video
+    -update store with trailer video
+    -embeded the youtube video make it autoplay
+    -tailwind classes to get look awesome
 ## tailwindcss 
     - installed and configures the tailwwindcss
     - npm i -D tailwindcss
