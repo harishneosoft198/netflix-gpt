@@ -51,7 +51,7 @@ const Header = () => {
         {user && 
         <div className='flex justify-between align-middle'>
           <img src={user?.photoURL} alt="profile" className='w-[60px] h-[60px]' />
-          <button className='text-black' onClick={handleSignOut}>(Sign Out)</button>
+          <button className='text-white' onClick={handleSignOut}>(Sign Out)</button>
         </div>}
     </div>
   )

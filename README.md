@@ -31,6 +31,12 @@
     -update store with trailer video
     -embeded the youtube video make it autoplay
     -tailwind classes to get look awesome
+    -build secondary component
+    -build movies list and movie card
+    -add css to secondary container through tailwind
+    -tmdb image cdn
+    -by using customhooks got the popular,toprated,upcoming,now playing movies list in tmdb
+    -updated the store once we got the data and consumed in components.
 ## tailwindcss 
     - installed and configures the tailwwindcss
     - npm i -D tailwindcss
