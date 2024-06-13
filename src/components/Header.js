@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect, useRef} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../utils/firebase';
@@ -7,11 +7,16 @@ import {useDispatch} from 'react-redux'
 import {addUser, removeUser} from '../utils/userSlice'
 import { onAuthStateChanged } from 'firebase/auth';
 import { LOGO } from '../utils/constants';
+import { toggleGptSearch } from '../utils/gptSlice';
+import {SUPPORTED_LANGUAGES} from '../utils/constants';
+import { changeLanguage } from '../utils/configSlice';
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
+  const showGptSearch = useSelector(store=>store.gpt.showGptSearch);
+  const language = useRef();
   const handleSignOut = ()=>{
     signOut(auth).then(() => {
       // Sign-out successful.
@@ -19,6 +24,12 @@ const Header = () => {
       // An error happened.
       navigate('/error');
     });
+  }
+  const handleGptToggle = ()=>{
+    dispatch(toggleGptSearch());
+  }
+  const onChangeLanguage = ()=>{
+    dispatch(changeLanguage(language.current.value));
   }
   useEffect(()=>{
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -49,10 +60,28 @@ const Header = () => {
         className='w-36'
         />
         {user && 
-        <div className='flex justify-between align-middle'>
+        <div className='flex align-middle p-2'>
+          {showGptSearch &&
+            <select
+                className="p-2 m-2 bg-gray-900 text-white"
+                onChange={onChangeLanguage}
+                ref={language}
+              >
+                {SUPPORTED_LANGUAGES.map((lang) => (
+                  <option key={lang.identifier} value={lang.identifier}>
+                    {lang.name}
+                  </option>
+                ))}
+            </select>
+          }
+          <button onClick={handleGptToggle} className='bg-purple-700 text-white py-1 px-4 rounded-lg mr-4 h-[38px]'>
+            {showGptSearch ? 'Home page' : 'Gpt Search'}
+          </button>
+          
           <img src={user?.photoURL} alt="profile" className='w-[60px] h-[60px]' />
           <button className='text-white' onClick={handleSignOut}>(Sign Out)</button>
-        </div>}
+        </div>
+        }
     </div>
   )
 }
